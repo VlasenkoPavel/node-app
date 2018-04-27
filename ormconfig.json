@@ -1,0 +1,16 @@
+{
+    "type":"postgres",
+    "host":"localhost",
+    "database":"nodeapp",
+    "username":"pvlasenko",
+    "password":"ac3102",
+    "entities":[
+        "dist/db/models/*.js"
+    ],
+    "migrations":[
+        "dist/db/migrations/*.js"
+    ],
+    "logging":[
+        "query","error"
+    ]
+}
