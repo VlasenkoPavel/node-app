@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const express = require("express");
 const routing_controllers_1 = require("routing-controllers");
+// import * from "../../../public";
 const path = require('path');
 const favicon = require('serve-favicon');
 const logger = require('morgan');
@@ -23,7 +24,18 @@ class Aplication {
     }
     init() {
         this.app.use(logger('dev'));
-        this.app.use(express.static(path.join(__dirname, '../public')));
+        this.app.use(express.static(path.join(__dirname, '../../../public')));
+        const PUBLIC_PATH = path.join(__dirname, '../../../public');
+        const INDEX_HTML_PATH = path.join(PUBLIC_PATH, 'index.html');
+        const API_BASIC_URL = '/api';
+        this.app.use(express.static(PUBLIC_PATH));
+        // this.app.use((req: any, res: Response, next: NextFunction) => {
+        //     if (!req.url.startsWith(API_BASIC_URL)) {
+        //         res.sendFile(INDEX_HTML_PATH);
+        //     } else {
+        //       next();
+        //     }
+        // });
     }
     start() {
         const port = this.config.get('port');

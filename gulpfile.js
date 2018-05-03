@@ -3,6 +3,8 @@ const ts = require("gulp-typescript");
 const tsGlob = require('gulp-typescript-glob');
 var sourcemaps = require('gulp-sourcemaps');
 const tsProject = ts.createProject("tsconfig.json");
+const webpack = require('webpack');
+const runSequence = require('gulp-run-sequence');
 
 // gulp.task("default", function () {
 //     return tsProject.src()
@@ -13,7 +15,15 @@ const tsProject = ts.createProject("tsconfig.json");
 // var tsProject = ts.createProject();
 
 // gulp.task('ts', function () {
-gulp.task('default', function () {
+
+gulp.task('default', function(done) {
+    runSequence('typescript', 'webpack', function() {
+        done();
+    });
+});
+
+
+gulp.task('typescript', function () {
     var tsResult = tsProject.src()
                             .pipe(tsGlob())
                             .pipe(tsProject());
@@ -23,6 +33,18 @@ gulp.task('default', function () {
                 //    .pipe(cached('ts-js'))
                 //    .pipe(debug({ title: "ts" }))
                    .pipe(gulp.dest("dist"));
+});
+
+gulp.task('webpack', function(callback) {
+    webpack(require('./webpack.config.js'), function(err, stats) {
+        if (err) {
+            throw new Error(err);
+        }
+        console.log(stats.toString({
+            colors: true
+        }));
+        callback();
+    });
 });
 
 // gulp.task('default', function() {

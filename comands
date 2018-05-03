@@ -1,0 +1,5 @@
+docker build -f Dockerfile.Db -t react-app-db .
+docker run -it --rm -p "5432:5432" react-app-db bash
+
+/usr/lib/postgresql/9.3/bin/postgres -D /var/lib/postgresql/9.3/main -c config_file=/etc/postgresql/9.3/main/postgresql.conf &
+

@@ -10,9 +10,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const routing_controllers_1 = require("routing-controllers");
-let UserController = class UserController {
+const sendIndexHtml_1 = require("../components/sendIndexHtml");
+let SiteController = class SiteController {
+    // @Get(/^\/[\w(\/)]+$/)
+    // getIndex(@Res() response:any) {}
     getНome() {
-        return "home page";
+        return "home";
     }
     getAbout() {
         return "about";
@@ -23,14 +26,15 @@ __decorate([
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
-], UserController.prototype, "get\u041Dome", null);
+], SiteController.prototype, "get\u041Dome", null);
 __decorate([
     routing_controllers_1.Get("/about"),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
-], UserController.prototype, "getAbout", null);
-UserController = __decorate([
-    routing_controllers_1.Controller()
-], UserController);
-exports.UserController = UserController;
+], SiteController.prototype, "getAbout", null);
+SiteController = __decorate([
+    routing_controllers_1.Controller(),
+    routing_controllers_1.UseBefore(sendIndexHtml_1.SendIndehHtml)
+], SiteController);
+exports.SiteController = SiteController;

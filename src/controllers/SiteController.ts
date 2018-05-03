@@ -1,12 +1,21 @@
-import { Controller, Param, Body, Get, Post, Put, Delete } from "routing-controllers";
+import { Controller, Param, Body, Get, Post, Put, Delete, Res, UseBefore } from "routing-controllers";
+import * as path from "path";
+
+import * as express from 'express';
+import { SendIndehHtml } from '../components/sendIndexHtml'
 
 @Controller()
-export class UserController {
+@UseBefore(SendIndehHtml)
+export class SiteController {
+
+    // @Get(/^\/[\w(\/)]+$/)
+    // getIndex(@Res() response:any) {}
 
     @Get("/")
     getНome() {
-       return "home page";
+        return "home"
     }
+
 
     @Get("/about")
     getAbout() {

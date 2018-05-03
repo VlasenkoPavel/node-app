@@ -1,5 +1,7 @@
 import * as express from 'express';
+import { Response, NextFunction } from 'express';
 import { createExpressServer } from "routing-controllers";
+// import * from "../../../public";
 
 const path = require('path');
 const favicon = require('serve-favicon');
@@ -29,7 +31,23 @@ class Aplication {
 
     private init() {
         this.app.use(logger('dev'));
-        this.app.use(express.static(path.join(__dirname, '../public')));
+        this.app.use(express.static(path.join(__dirname, '../../../public')));
+
+        const PUBLIC_PATH = path.join(__dirname, '../../../public');
+        const INDEX_HTML_PATH = path.join(PUBLIC_PATH, 'index.html');
+        const API_BASIC_URL = '/api';
+
+        this.app.use(
+            express.static(PUBLIC_PATH)
+        );
+
+        // this.app.use((req: any, res: Response, next: NextFunction) => {
+        //     if (!req.url.startsWith(API_BASIC_URL)) {
+        //         res.sendFile(INDEX_HTML_PATH);
+        //     } else {
+        //       next();
+        //     }
+        // });
     }
 
     public start() {

@@ -3,11 +3,11 @@
     "dbconfig": {
         "type": "postgres",
         "host": "localhost",
-        "username": "pvlasenko",
-        "password": "ac3102",
-        "database": "nodeapp",
+        "username": "admin",
+        "password": "123qwe",
+        "database": "node_react_app_db",
         "entities": [
-            "/home/pvlasenko/Desktop/pv-repo/nodeapp/src/models/entities"
+            "/home/pavel/Desktop/GU/reactApp/nodeapp/src/models/entities"
         ],
         "synchronize": true,
         "logging": false
