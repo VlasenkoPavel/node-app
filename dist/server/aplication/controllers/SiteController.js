@@ -10,7 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const routing_controllers_1 = require("routing-controllers");
-const sendIndexHtml_1 = require("../components/sendIndexHtml");
+const sendIndexHtml_1 = require("../components/middlewares/sendIndexHtml");
 let SiteController = class SiteController {
     // @Get(/^\/[\w(\/)]+$/)
     // getIndex(@Res() response:any) {}

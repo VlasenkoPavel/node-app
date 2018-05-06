@@ -11,8 +11,8 @@ const bodyParser = require('body-parser');
 const debug = require('debug')('nodeapp:server');
 const http = require('http');
 
-import { logger as log } from '../libs/log';
-import { Dbconnector } from '../dbconnector/dbconnector';
+import { logger as log } from '../components/log';
+import { Dbconnector } from './dbconnector';
 
 class Aplication {
     private app: express.Application;
@@ -31,9 +31,9 @@ class Aplication {
 
     private init() {
         this.app.use(logger('dev'));
-        this.app.use(express.static(path.join(__dirname, '../../../public')));
+        this.app.use(express.static(path.join(__dirname, '../../../../public')));
 
-        const PUBLIC_PATH = path.join(__dirname, '../../../public');
+        const PUBLIC_PATH = path.join(__dirname, '../../../../public');
         const INDEX_HTML_PATH = path.join(PUBLIC_PATH, 'index.html');
         const API_BASIC_URL = '/api';
 

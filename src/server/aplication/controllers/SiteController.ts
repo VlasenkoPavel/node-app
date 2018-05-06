@@ -2,7 +2,7 @@ import { Controller, Param, Body, Get, Post, Put, Delete, Res, UseBefore } from 
 import * as path from "path";
 
 import * as express from 'express';
-import { SendIndehHtml } from '../components/sendIndexHtml'
+import { SendIndehHtml } from '../components/middlewares/sendIndexHtml'
 
 @Controller()
 @UseBefore(SendIndehHtml)

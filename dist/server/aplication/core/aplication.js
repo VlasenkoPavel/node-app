@@ -10,8 +10,8 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const debug = require('debug')('nodeapp:server');
 const http = require('http');
-const log_1 = require("../libs/log");
-const dbconnector_1 = require("../dbconnector/dbconnector");
+const log_1 = require("../components/log");
+const dbconnector_1 = require("./dbconnector");
 class Aplication {
     constructor(config) {
         this.config = config;
@@ -24,8 +24,8 @@ class Aplication {
     }
     init() {
         this.app.use(logger('dev'));
-        this.app.use(express.static(path.join(__dirname, '../../../public')));
-        const PUBLIC_PATH = path.join(__dirname, '../../../public');
+        this.app.use(express.static(path.join(__dirname, '../../../../public')));
+        const PUBLIC_PATH = path.join(__dirname, '../../../../public');
         const INDEX_HTML_PATH = path.join(PUBLIC_PATH, 'index.html');
         const API_BASIC_URL = '/api';
         this.app.use(express.static(PUBLIC_PATH));

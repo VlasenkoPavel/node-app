@@ -1,7 +1,7 @@
 import {ExpressMiddlewareInterface} from "routing-controllers";
 import * as path from "path";
 
-const INDEX_HTML_PATH = path.join(__dirname, '../../public/index.html');
+const INDEX_HTML_PATH = path.join(__dirname, '../../../../../public/index.html');
  
 export class SendIndehHtml implements ExpressMiddlewareInterface { 
     use(request: any, response: any, next?: (err?: any) => any): any {

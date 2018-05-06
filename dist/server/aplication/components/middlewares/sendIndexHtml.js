@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const path = require("path");
-const INDEX_HTML_PATH = path.join(__dirname, '../../public/index.html');
+const INDEX_HTML_PATH = path.join(__dirname, '../../../../../public/index.html');
 class SendIndehHtml {
     use(request, response, next) {
         let a = 1;
