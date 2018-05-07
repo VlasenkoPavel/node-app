@@ -9,7 +9,7 @@ nconf.argv()
     });
 
 nconf.set('controllers', path.join(__dirname, '../', 'dist/server/aplication/controllers'));
-const entities = path.join(__dirname, "../", "dist/server/infrastructure/db-models");
+const entitiesDir = path.join(__dirname, "../", "dist/server/infrastructure/db-models");
 // nconf.set('dbconfig', `{
 //     "type": "postgres",
 //     "host": "localhost",
@@ -17,7 +17,7 @@ const entities = path.join(__dirname, "../", "dist/server/infrastructure/db-mode
 //     "password": "123qwe",
 //     "database": "node_react_app_db",
 //     "entities": [
-//         "${entities}"
+//         "${entitiesDir}"
 //     ],
 //     "synchronize": true,
 //     "logging": false
