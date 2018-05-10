@@ -5,6 +5,7 @@ import { JumbotronHeader, Props as HeaderProps }  from './JumbotronHeader';
 import { Jumbotron, Props as JumbotronProps }  from './Jumbotron';
 
 const jumbotronState1 = {
+    stateNum: 1,
     jumbotronProps: {
         heading: "Jumbotron state1 heading",
         text: "Jumbotron in state1",
@@ -16,6 +17,7 @@ const jumbotronState1 = {
 }
 
 const jumbotronState2 = {
+    stateNum: 2,
     jumbotronProps: {
         heading: "Ops!!!",
         text: "State has been changed",
@@ -30,6 +32,7 @@ interface AllProps {
     headerProps: HeaderProps;
 }
 interface AllState {
+    stateNum: number;
     jumbotronProps: JumbotronProps;
 }
 
@@ -56,6 +59,11 @@ export class JumbotronLayout extends Component<AllProps, AllState> {
 
     componentDidMount() {
         alert('hello');
-        document.addEventListener('JBClick', (e) => this.setState(jumbotronState2), false);
+        
+        document.addEventListener('JBClick', (e) => {
+            let newState;
+            this.state.stateNum === 1 ? newState = jumbotronState2 : newState = jumbotronState1;
+            this.setState(newState);
+        }, false);
     }
 }

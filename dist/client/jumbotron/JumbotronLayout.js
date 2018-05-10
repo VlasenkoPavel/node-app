@@ -5,6 +5,7 @@ const react_1 = require("react");
 const JumbotronHeader_1 = require("./JumbotronHeader");
 const Jumbotron_1 = require("./Jumbotron");
 const jumbotronState1 = {
+    stateNum: 1,
     jumbotronProps: {
         heading: "Jumbotron state1 heading",
         text: "Jumbotron in state1",
@@ -15,6 +16,7 @@ const jumbotronState1 = {
     }
 };
 const jumbotronState2 = {
+    stateNum: 2,
     jumbotronProps: {
         heading: "Ops!!!",
         text: "State has been changed",
@@ -42,7 +44,11 @@ class JumbotronLayout extends react_1.Component {
     }
     componentDidMount() {
         alert('hello');
-        document.addEventListener('JBClick', (e) => this.setState(jumbotronState2), false);
+        document.addEventListener('JBClick', (e) => {
+            let newState;
+            this.state.stateNum === 1 ? newState = jumbotronState2 : newState = jumbotronState1;
+            this.setState(newState);
+        }, false);
     }
 }
 exports.JumbotronLayout = JumbotronLayout;
