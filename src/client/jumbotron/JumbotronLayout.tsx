@@ -43,6 +43,10 @@ export class JumbotronLayout extends Component<AllProps, AllState> {
         this.setState(jumbotronState2);
     }
     
+    shouldComponentUpdate() {
+        return confirm('Are your sure?');
+    }
+    
     render() {
         return <div>
             <JumbotronHeader {...this.props.headerProps} />

@@ -32,6 +32,9 @@ class JumbotronLayout extends react_1.Component {
     handleOnButtonClick() {
         this.setState(jumbotronState2);
     }
+    shouldComponentUpdate() {
+        return confirm('Are your sure?');
+    }
     render() {
         return React.createElement("div", null,
             React.createElement(JumbotronHeader_1.JumbotronHeader, Object.assign({}, this.props.headerProps)),
