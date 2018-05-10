@@ -1,11 +1,14 @@
 const path = require('path');
 
 module.exports = {
-    entry: path.join(__dirname, 'dist/client/app.js'),
+    entry: {
+        // vendors: path.join(__dirname, 'dist/client', 'vendors'),
+        app: path.join(__dirname, 'dist/client', 'app')
+    },
 
     output: {
-        filename: 'scripts/bundle.js',
-        path: path.join(__dirname, 'public'),
+        path: path.join(__dirname, 'public', 'scripts'),
+        filename: 'bundle.js',
         library: 'lib'
     },
 
@@ -13,7 +16,8 @@ module.exports = {
 
     module: {
         rules: [
-            { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" }
+            { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" },
+            { test: /\.css$/, exclude: /node_modules/, loader: 'style-loader!css-loader' }
         ]
     }
 };

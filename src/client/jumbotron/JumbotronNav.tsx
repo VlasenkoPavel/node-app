@@ -1,16 +1,17 @@
 import * as React  from 'react';
 import { Component }  from 'react';
 
-interface INavItems {
-    items: string[]
-}
-interface ItemProps {
-    title: string
+type NavItems = {
+    items: string[];
 }
 
-const NavItem = (props: ItemProps) => (<li role="presentation" className="active"><a href="#">{props.title}</a></li>);
+type ItemProps = {
+    title: string;
+}
 
-export class JumbotronNav extends Component<INavItems> {
+const NavItem = (props: ItemProps) => (<li role="presentation" className="nav-item active"><a href="#">{props.title}</a></li>);
+
+export class JumbotronNav extends Component<NavItems> {
     render(): any {
         const items = this.props.items.map((item, index) => <NavItem title={item} key={index}/>);
     return <nav>

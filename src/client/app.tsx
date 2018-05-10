@@ -1,6 +1,15 @@
+import './vendors';
 import * as React  from 'react';
 import { Component }  from 'react';
 import { render }  from 'react-dom';
-import { JumbotronLayout }  from './JumbotronLayout';
+import { JumbotronLayout }  from './jumbotron/JumbotronLayout';
 
-render(<JumbotronLayout/>, document.getElementById('root'));
+const jumbotronProps = {
+    headerProps: {
+        title:'Project name',
+        navItems: ['home', 'about', 'contacts']
+    }
+}
+
+
+render(<JumbotronLayout {...jumbotronProps}/>, document.getElementById('root'));

@@ -2,12 +2,12 @@ import * as React  from 'react';
 import { Component }  from 'react';
 import { JumbotronNav }  from './JumbotronNav';
 
-interface IHeaderProps {
+export type Props = {
     navItems: string[],
     title: string
 }
 
-export class JumbotronHeader extends Component<IHeaderProps> {
+export class JumbotronHeader extends Component<Props> {
     render()
     {
         return <div className="header clearfix">

@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const React = require("react");
 const react_1 = require("react");
-const NavItem = (props) => (React.createElement("li", { role: "presentation", className: "active" },
+const NavItem = (props) => (React.createElement("li", { role: "presentation", className: "nav-item active" },
     React.createElement("a", { href: "#" }, props.title)));
 class JumbotronNav extends react_1.Component {
     render() {
