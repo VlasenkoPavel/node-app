@@ -4,27 +4,68 @@ body {
   padding-bottom: 20px;
 }
 
-/* Everything but the jumbotron gets side spacing for mobile first views */
-.header,
+.cell {
+  width: 80px;
+  height: 80px;
+  margin-left: auto;
+  margin-bottom: auto; 
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: red;
+}
+
+.number {
+  width: 100%;
+  display: block;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center; 
+}
+
+.counter {
+  display: block;
+  text-align: right;
+  font-size: 12px;
+  margin-left: auto; 
+  margin-bottom: auto; 
+}
+
+.firstField {
+  width: 70%;
+  height: 260px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+
+/* .header,
 .marketing,
 .footer {
   padding-right: 15px;
   padding-left: 15px;
 }
 
-/* Custom page header */
+
 .header {
   padding-bottom: 20px;
   border-bottom: 1px solid #e5e5e5;
 }
-/* Make the masthead heading the same height as the navigation */
+
 .header h3 {
   margin-top: 0;
   margin-bottom: 0;
   line-height: 40px;
 }
 
-/* Custom page footer */
+
 .footer {
   padding-top: 19px;
   color: #777;
@@ -52,7 +93,7 @@ body {
   color: blue;
 }
 
-/* Customize container */
+
 @media (min-width: 768px) {
   .container {
     max-width: 730px;
@@ -62,7 +103,7 @@ body {
   margin: 30px 0;
 }
 
-/* Main marketing message and sign up button */
+
 .jumbotron {
   text-align: center;
   border-bottom: 1px solid #e5e5e5;
@@ -72,7 +113,7 @@ body {
   font-size: 21px;
 }
 
-/* Supporting marketing content */
+
 .marketing {
   margin: 40px 0;
 }
@@ -80,21 +121,22 @@ body {
   margin-top: 28px;
 }
 
-/* Responsive: Portrait tablets and up */
+
 @media screen and (min-width: 768px) {
-  /* Remove the padding we set earlier */
+
   .header,
   .marketing,
   .footer {
     padding-right: 0;
     padding-left: 0;
   }
-  /* Space out the masthead */
+
   .header {
     margin-bottom: 30px;
   }
-  /* Remove the bottom border on the jumbotron for visual effect */
+
   .jumbotron {
     border-bottom: 0;
   }
-}
+} 
+*/

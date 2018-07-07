@@ -1,0 +1,115 @@
+/* Space out content a bit */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.cell {
+  width: 60px;
+  height: 60px;
+  border: 1px solid black;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #F6CECE;
+
+  &_black {
+    background-color: grey;
+  }
+
+  &_purple {
+    background-color: #FE2EF7;
+  };
+
+  &_yellow {
+    background-color: #F4FA58;
+  };
+
+  &_blue {
+    background-color: #2EFEC8;
+  };
+  
+  &_green {
+    background-color: #3ADF00;
+  };
+}
+
+.field {
+  width: 800px;
+  height: 200px;
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-content: space-between; 
+}
+
+.field .cell_zero {
+  height: 193px;
+  position: absolute;
+  top: 0px;
+  left: -70px;
+}
+
+.field .cell {
+  margin-right: 5px;
+}
+
+.wheel {
+  width: 1300px;
+  margin: 50px auto;
+}
+
+.last {
+  width: 250px;
+  margin: 50px auto;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+
+.cell-column {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.single-cell{
+  margin: 5px 0;
+}
+
+.number {
+  width: 100%;
+  display: block;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 20px;
+  text-align: center; 
+}
+
+.counter {
+  display: block;
+  text-align: right;
+  font-size: 16px;
+  margin-left: auto; 
+  margin-bottom: auto; 
+}
+
+.cell-line {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: space-between;
+}
+
+.cell-column .cell {
+  margin-top: 3px; 
+}
