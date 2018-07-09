@@ -2,6 +2,7 @@ import './vendors';
 import * as React  from 'react';
 import { Component }  from 'react';
 import { render }  from 'react-dom';
+import autobind from 'autobind-decorator';
 
 type cellProps = {
     number: number,
@@ -126,10 +127,9 @@ class Layout extends Component<AppProps, State> {
     constructor(props: AppProps) {
       super(props);
       this.state = InitialState;
-      this.addNumber = this.addNumber.bind(this);
-      this.setState.bind(this);
     }
 
+    @autobind
     public addNumber(number: number) {
         const lastNums = [...this.state.lastNums, number];
         this.setState({lastNums});
