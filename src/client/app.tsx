@@ -46,10 +46,7 @@ const whellNums = [5,24,16,33,1,20,14,31,9,22,18,29,7,28,12,35,3,26,0,32,15,19,4
 const blackNums =[10,24,33,20,31,22,29,28,35,26,8,11,13,,6,17,2,4,15]
 
 const Cell = ({ number, count, className, onClick }: cellProps) => 
-    <div className={className} onClick={() => {
-      
-        onClick(number)
-    }}>
+    <div className={className} onClick={() => { onClick(number) }}>
         <span className="number">
             {number}
         </span>
@@ -60,36 +57,26 @@ const colorPainter = (blackNums: number[], currNum: number, lastNums: number[]):
     let className = 'cell'
     const getLastNums = (nums: number[], from: number, to: number): number[] => [...nums].reverse().filter((num, ind) => (ind >= from && ind < to));
 
-    if (getLastNums(lastNums, 0, 4).includes(currNum)) {
-        className='cell cell_purple'
-    } else if(getLastNums(lastNums, 4, 7).includes(currNum)) {
-        className='cell cell_yellow'
-    } else if(getLastNums(lastNums, 7, 10).includes(currNum)) {
-        className='cell cell_blue'
-    } else if (blackNums.includes(currNum)) {
-        className='cell cell_black'
-    } else if (currNum === 0) {
-        className='cell cell_green'
-    }
+    if (getLastNums(lastNums, 0, 4).includes(currNum)) className='cell cell_purple';
+    else if (getLastNums(lastNums, 4, 7).includes(currNum)) className='cell cell_yellow';
+    else if (getLastNums(lastNums, 7, 10).includes(currNum)) className='cell cell_blue';
+    else if (blackNums.includes(currNum)) className='cell cell_black';
+    else if (currNum === 0) className='cell cell_green';
+    
+    if (currNum === 0) className += ' cell_zero';
 
-    if(currNum === 0) {
-        className +=' cell_zero'
-    }
-
-    return className
+    return className;
 } 
 
 const redBlackGrenpainter = (blackNums: number[], currNum: number, lastNums: number[]): string => {
     let className = 'cell'
     const getLastNums = (nums: number[], from: number, to: number): number[] => [...nums].reverse().filter((num, ind) => (ind >= from && ind < to));
 
-    if (blackNums.includes(currNum)) {
-        className='cell cell_black'
-    } else if (currNum === 0) {
-        className='cell cell_green'
-    }
+    if (blackNums.includes(currNum)) className='cell cell_black';
+    else if (currNum === 0) className='cell cell_green';
+    
 
-    return className
+    return className;
 } 
 
 const CellLine = ({ cellNums, blackNums, lastNums, lineName, onClick, getClass }: CellLineProps) => {
@@ -104,7 +91,6 @@ const CellLine = ({ cellNums, blackNums, lastNums, lineName, onClick, getClass }
 }
 
 const Wheel = ({cellNums, blackNums, lastNums, onClick, getClass}: CellLineProps) => {
-    const blackFieldSet = new Set(blackNums);
     const firstLineNums = cellNums.filter((item, index) => index < 16);
     const secondLineNums = cellNums.filter((item, index) => index > 16 && index < 36).reverse();
     
@@ -124,8 +110,8 @@ const Last = ({blackNums, lastNums, count, onClick, getClass}: LastProps) => {
 }
 
 class Layout extends Component<AppProps, State> {
-    constructor(props: AppProps) {
-      super(props);
+    constructor({ cellNums, blackNums }: AppProps) {
+      super({ cellNums, blackNums });
       this.state = InitialState;
     }
 
@@ -138,7 +124,7 @@ class Layout extends Component<AppProps, State> {
     public getLastNums(count: number): number[] {
         const lastNums = this.state.lastNums.filter((num, index) => index <= this.state.lastNums.length && index >= (this.state.lastNums.length - count));
 
-        return lastNums
+        return lastNums;
     }
   
     render() {
@@ -156,5 +142,5 @@ class Layout extends Component<AppProps, State> {
 const app = document.getElementById('root');
 
 render(
-    <Layout cellNums={whellNums} blackNums={[3,5,7]} /> , app
+    <Layout cellNums={whellNums} blackNums={blackNums} /> , app
 );
