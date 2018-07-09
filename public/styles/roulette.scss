@@ -9,8 +9,9 @@ body {
 }
 
 .cell {
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
+  position: relative;
   border: 1px solid black;
   color: black;
   display: flex;
@@ -40,7 +41,7 @@ body {
 }
 
 .field {
-  width: 800px;
+  width: 700px;
   height: 200px;
   margin: 0 auto;
   position: relative;
@@ -51,7 +52,7 @@ body {
 }
 
 .field .cell_zero {
-  height: 193px;
+  height: 182px;
   position: absolute;
   top: 0px;
   left: -70px;
@@ -62,39 +63,45 @@ body {
 }
 
 .wheel {
-  width: 1300px;
+  width: 1150px;
+  height: 160px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
   margin: 50px auto;
 }
 
 .last {
-  width: 250px;
+  width: 550px;
   margin: 50px auto;
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
 }
 
-.cell-column {
-  display: flex;
-  flex-flow: column nowrap;
+.last .cell-line {
+  height: 110px;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
 
-.single-cell{
-  margin: 5px 0;
+.last .cell {
+  margin-right: 5px;
+}
+
+.last .cell_black {
+  margin-top: 60px;
 }
 
 .number {
   width: 100%;
   display: block;
-  margin-top: auto;
-  margin-bottom: auto;
-  margin-left: auto;
-  margin-right: auto;
+  margin: auto auto auto auto;
   font-size: 20px;
   text-align: center; 
 }
 
 .counter {
+  position: absolute;
+  top: -2px;
+  right: 0;
   display: block;
   text-align: right;
   font-size: 16px;

@@ -30,7 +30,6 @@ type LastProps = {
 type AppProps = {
     cellNums: number[],
     blackNums: number[],
-    onClick: (arg: any) => any
 }
 
 type State = {
@@ -110,26 +109,16 @@ const Wheel = ({cellNums, blackNums, lastNums, onClick, getClass}: CellLineProps
     
     return <div className="wheel">
         <CellLine cellNums={firstLineNums} blackNums={blackNums} lastNums={lastNums} onClick={onClick} getClass={getClass} lineName="cell-line" />
-        <div className="cell-line">
-            <CellLine cellNums={[10]} blackNums={blackNums} lastNums={lastNums} onClick={onClick} getClass={getClass}  lineName="single-cell" />
-            <CellLine cellNums={[3]} blackNums={blackNums} lastNums={lastNums} onClick={onClick} getClass={getClass}  lineName="single-cell" />
-        </div>
+        <CellLine cellNums={[10,3]} blackNums={blackNums} lastNums={lastNums} onClick={onClick} getClass={getClass}  lineName="cell-line" />
         <CellLine cellNums={secondLineNums} blackNums={blackNums} lastNums={lastNums} onClick={onClick} getClass={getClass}   lineName="cell-line" />
     </div>
 }
 
 const Last = ({blackNums, lastNums, count, onClick, getClass}: LastProps) => {
-    const blackFieldSet = new Set(blackNums);
-    const blackNumbers = [...lastNums].reverse().filter((num, index) => blackFieldSet.has(num) && index < count);
-    const notblackNums = [...lastNums].reverse().filter((num, index) => !blackFieldSet.has(num) && index < count);
+    const numbers = [...lastNums].reverse().filter((num, index) => index < count);
     
     return <div className="last">
-        <div className="cell-column">
-            <CellLine cellNums={blackNumbers} blackNums={blackNums} lastNums={lastNums} onClick={onClick} getClass={getClass} lineName="single-cell" />
-        </div>
-        <div className="cell-column">
-            <CellLine cellNums={notblackNums} blackNums={blackNums} lastNums={lastNums} onClick={onClick} getClass={getClass} lineName="single-cell" />
-        </div>
+            <CellLine cellNums={numbers} blackNums={blackNums} lastNums={lastNums} onClick={onClick} getClass={getClass} lineName="cell-line" />
     </div>
 }
 
@@ -145,14 +134,20 @@ class Layout extends Component<AppProps, State> {
         const lastNums = [...this.state.lastNums, number];
         this.setState({lastNums});
     }
+
+    public getLastNums(count: number): number[] {
+        const lastNums = this.state.lastNums.filter((num, index) => index <= this.state.lastNums.length && index >= (this.state.lastNums.length - count));
+
+        return lastNums
+    }
   
     render() {
         return <React.Fragment>
             <div className="field">
-                <CellLine cellNums={fieldNums} blackNums={blackNums} lastNums={this.state.lastNums} onClick={this.addNumber} getClass={colorPainter} lineName={'cell-line'}/>
+                <CellLine cellNums={fieldNums} blackNums={blackNums} lastNums={this.getLastNums(10)} onClick={this.addNumber} getClass={colorPainter} lineName={'cell-line'}/>
             </div>
-            <Wheel cellNums={whellNums} blackNums={blackNums} lastNums={this.state.lastNums} onClick={f=>f} getClass={redBlackGrenpainter} lineName={'cell-line'}/>
-            <Last blackNums={blackNums} lastNums={this.state.lastNums} count={10} onClick={f=>f} getClass={redBlackGrenpainter}/>
+            <Wheel cellNums={whellNums} blackNums={blackNums} lastNums={this.getLastNums(10)} onClick={f=>f} getClass={colorPainter} lineName={'cell-line'}/>
+            <Last blackNums={blackNums} lastNums={this.getLastNums(10)} count={10} onClick={f=>f} getClass={redBlackGrenpainter}/>
         </React.Fragment>
     }
   }
@@ -160,13 +155,6 @@ class Layout extends Component<AppProps, State> {
 
 const app = document.getElementById('root');
 
-if ((new Date).getTime() < 1531402200000) {
-    render(
-        <Layout cellNums={whellNums} blackNums={[3,5,7]} onClick={f=>f} /> , app
-    );
-} else { 
-    render(
-        <p>test period finished</p>, app
-    );
-
-}
+render(
+    <Layout cellNums={whellNums} blackNums={[3,5,7]} /> , app
+);
