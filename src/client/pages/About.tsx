@@ -1,9 +1,8 @@
-import * as React  from 'react';
-import { Component }  from 'react';
+import * as React from 'react';
+import { Component } from 'react';
 
-export class About extends Component
-{
-    render(){
+export class About extends Component {
+    public render() {
         return (
             <div className="jumbotron">
                 <h1>About page</h1>

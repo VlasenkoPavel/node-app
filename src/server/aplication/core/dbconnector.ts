@@ -1,4 +1,4 @@
-import { createConnection, ConnectionOptions } from "typeorm";
+import { createConnection, ConnectionOptions } from 'typeorm';
 
 class Dbconnector {
 
@@ -8,10 +8,10 @@ class Dbconnector {
         this.config = config;
     }
 
-    public createDbConnection () {
+    public createDbConnection() {
         // createConnection(this.config).then(connection => {
         //     console.log('connection to DB success');
         // }).catch(error => console.log(error));
     }
 }
- export { Dbconnector };
+export { Dbconnector };
