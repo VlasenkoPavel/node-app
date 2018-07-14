@@ -25,13 +25,13 @@ const logger = new (winston.Logger)({
             //     return Date.now();
             // },
             formatter: function(options: any) {
-            // - Return string will be passed to logger.
-            // - Optionally, use options.colorize(options.level, <string>) to
-            //   colorize output based on the log level.
-            // return options.timestamp() + ' ' +
+                // - Return string will be passed to logger.
+                // - Optionally, use options.colorize(options.level, <string>) to
+                //   colorize output based on the log level.
+                // return options.timestamp() + ' ' +
                 return config.colorize(options.level, options.level.toUpperCase()) + ' ' +
                     (options.message ? options.message : '') +
-                    (options.meta && Object.keys(options.meta).length ? '\n\t'+ JSON.stringify(options.meta) : '' );
+                    (options.meta && Object.keys(options.meta).length ? '\n\t' + JSON.stringify(options.meta) : '');
             }
         })
     ]

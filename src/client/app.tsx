@@ -1,23 +1,23 @@
 import './vendors';
-import * as React  from 'react';
-import { Component }  from 'react';
-import { render }  from 'react-dom';
+import * as React from 'react';
+import { Component } from 'react';
+import { render } from 'react-dom';
 import { Router, Route, BrowserRouter } from 'react-router-dom';
 
-import { Application, Props as AppProps, State as AppState }  from './layouts/Application';
+import { Application, Props as AppProps, State as AppState } from './layouts/Application';
 
 const Props = {
     headerProps: {
-        title:'Project name',
+        title: 'Project name',
         navItems: ['home', 'about']
     }
-}
+};
 
 const app = document.getElementById('root');
 
 render(
     <BrowserRouter>
-        <Application {...Props}/>
+        <Application {...Props} />
     </BrowserRouter>, app
 );
 // render(

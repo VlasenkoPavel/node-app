@@ -1,6 +1,6 @@
 import * as express from 'express';
 import { Response, NextFunction } from 'express';
-import { createExpressServer } from "routing-controllers";
+import { createExpressServer } from 'routing-controllers';
 // import * from "../../../public";
 
 const path = require('path');
@@ -29,6 +29,16 @@ class Aplication {
         this.init();
     }
 
+    public start() {
+
+        const port = this.config.get('port');
+
+        const dbconnector = new Dbconnector(this.config.get('dbconfig'));
+        dbconnector.createDbConnection();
+
+        this.app.listen(port, log.info(`server satarted on port ${port}`));
+    }
+
     private init() {
         this.app.use(logger('dev'));
         this.app.use(express.static(path.join(__dirname, '../../../../public')));
@@ -50,15 +60,6 @@ class Aplication {
         // });
     }
 
-    public start() {
-
-        const port = this.config.get('port');
-
-        const dbconnector = new Dbconnector(this.config.get('dbconfig'));
-        dbconnector.createDbConnection();
-
-        this.app.listen(port, log.info(`server satarted on port ${port}`));
-    }
 
     private onError(error: any) {
         if (error.syscall !== 'listen') {
