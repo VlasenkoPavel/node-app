@@ -1,26 +1,19 @@
 const fs = require('fs');
 const nconf = require('nconf');
 const path = require('path');
+const dbconfig = require('./db-config');
 
 nconf.argv()
-    .env()
-    .file({ 
+.env()
+    .file({
         file: path.join(__dirname, 'config.json')
     });
 
-nconf.set('controllers', path.join(__dirname, '../', 'dist/server/aplication/controllers'));
+const controllerDir = path.join(__dirname, '../', 'dist/server/aplication/controllers')
 const entitiesDir = path.join(__dirname, "../", "dist/server/infrastructure/db-models");
-// nconf.set('dbconfig', `{
-//     "type": "postgres",
-//     "host": "localhost",
-//     "username": "admin",
-//     "password": "123qwe",
-//     "database": "node_react_app_db",
-//     "entities": [
-//         "${entitiesDir}"
-//     ],
-//     "synchronize": true,
-//     "logging": false
-// }`);
+
+nconf.set('controllers', controllerDir);
+
+nconf.set('dbconfig', dbconfig);
 
 module.exports = nconf;
