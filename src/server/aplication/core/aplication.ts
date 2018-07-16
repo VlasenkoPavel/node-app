@@ -23,7 +23,7 @@ class Aplication {
         const controllersDir = this.config.get('controllers');
         this.app = createExpressServer({
             controllers: [`${controllersDir}/*.js`]
-         });
+        });
 
         this.config = config;
         this.init();
@@ -32,7 +32,6 @@ class Aplication {
     public start() {
 
         const port = this.config.get('port');
-
         const dbconnector = new Dbconnector(this.config.get('dbconfig'));
         dbconnector.createDbConnection();
 
@@ -70,15 +69,15 @@ class Aplication {
 
         switch (error.code) {
             case 'EACCES':
-            console.error(bind + ' requires elevated privileges');
-            process.exit(1);
-            break;
+                console.error(bind + ' requires elevated privileges');
+                process.exit(1);
+                break;
             case 'EADDRINUSE':
-            console.error(bind + ' is already in use');
-            process.exit(1);
-            break;
+                console.error(bind + ' is already in use');
+                process.exit(1);
+                break;
             default:
-            throw error;
+                throw error;
         }
     }
 }

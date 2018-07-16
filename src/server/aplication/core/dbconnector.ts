@@ -9,9 +9,10 @@ class Dbconnector {
     }
 
     public createDbConnection() {
-        // createConnection(this.config).then(connection => {
-        //     console.log('connection to DB success');
-        // }).catch(error => console.log(error));
+        createConnection(this.config).then(connection => {
+            console.log('connection to DB success');
+        }).catch(error => console.log(error));
     }
 }
+
 export { Dbconnector };
