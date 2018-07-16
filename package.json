@@ -6,6 +6,9 @@
     "start": "node ./dist/server/index.js",
     "build": "./node_modules/.bin/gulp",
     "lint": "tslint -c tslint.json 'src/**/*.{ts,tsx}'",
+    "test": "jest",
+    "migrate": "node ./config/getOrmConfig > ormconfig.json && ./node_modules/.bin/typeorm migration:run",
+    "migrate-test": "NA_ENV=test node ./config/getOrmConfig > ormconfig.json && ./node_modules/.bin/typeorm migration:run"
   },
   "dependencies": {
     "body-parser": "^1.18.2",
@@ -32,6 +35,7 @@
     "@types/gulp": "^4.0.5",
     "@types/gulp-sourcemaps": "0.0.32",
     "@types/gulp-typescript": "^2.13.0",
+    "@types/jest": "^23.1.6",
     "@types/node": "^9.4.5",
     "@types/react": "^16.3.13",
     "@types/react-dom": "^16.0.5",
@@ -51,13 +55,37 @@
     "gulp-sourcemaps-support": "0.0.1",
     "gulp-typescript": "^4.0.1",
     "gulp-typescript-glob": "0.0.1",
+    "jest": "^23.4.1",
     "node-sass": "^4.9.0",
     "sass-loader": "^7.0.3",
     "style-loader": "^0.21.0",
+    "ts-jest": "^23.0.0",
+    "ts-jest-babel-7": "^22.0.7",
     "typescript": "^2.7.1",
     "webpack": "^4.14.0",
     "webpack-cli": "^2.1.2",
     "tsconfig-paths": "^3.4.2",
     "source-map-support": "^0.5.6"
+  },
+  "jest": {
+    "globals": {
+      "ts-jest": {
+        "skipBabel": true,
+        "useBabelrc": true,
+        "enableTsDiagnostics": true
+      }
+    },
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
   }
 }
