@@ -11,8 +11,8 @@ const bodyParser = require('body-parser');
 const debug = require('debug')('nodeapp:server');
 const http = require('http');
 
-import { logger as log } from '../components/log';
-import { Dbconnector } from './dbconnector';
+import { logger as log } from '@application/components/log';
+import DbConnector from '@core/DbConnector';
 
 class Aplication {
     private app: express.Application;
@@ -32,8 +32,8 @@ class Aplication {
     public start() {
 
         const port = this.config.get('port');
-        const dbconnector = new Dbconnector(this.config.get('dbconfig'));
-        dbconnector.createDbConnection();
+        const dbconnector = DbConnector.getInstance(this.config.get('dbconfig'));
+        dbconnector.connect();
 
         this.app.listen(port, log.info(`server satarted on port ${port}`));
     }

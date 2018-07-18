@@ -8,9 +8,10 @@
         "jsx": "react",
         "baseUrl": "src/server/",
         "paths": {
-            "@infrastructure/*": [
-                "infrastructure/*"
-            ]
+            "@infrastructure/*": ["infrastructure/*"],
+            "@core/*": ["application/core/*"],
+            "@application/*": ["application/*"],
+            "@components/*": ["application/components/*"]
         }
     },
     "exclude": [
