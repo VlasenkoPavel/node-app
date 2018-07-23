@@ -1,15 +1,14 @@
 import * as express from 'express';
-import { Response, NextFunction } from 'express';
 import { createExpressServer } from 'routing-controllers';
 // import * from "../../../public";
 
 const path = require('path');
-const favicon = require('serve-favicon');
+// const favicon = require('serve-favicon');
 const logger = require('morgan');
-const cookieParser = require('cookie-parser');
-const bodyParser = require('body-parser');
-const debug = require('debug')('nodeapp:server');
-const http = require('http');
+// const cookieParser = require('cookie-parser');
+// const bodyParser = require('body-parser');
+// const debug = require('debug')('nodeapp:server');
+// const http = require('http');
 
 import { logger as log } from '@application/components/log';
 import DbConnector from '@core/DbConnector';
@@ -30,7 +29,6 @@ class Aplication {
     }
 
     public start() {
-
         const port = this.config.get('port');
         const dbconnector = DbConnector.getInstance(this.config.get('dbconfig'));
         dbconnector.connect();
@@ -43,8 +41,8 @@ class Aplication {
         this.app.use(express.static(path.join(__dirname, '../../../../public')));
 
         const PUBLIC_PATH = path.join(__dirname, '../../../../public');
-        const INDEX_HTML_PATH = path.join(PUBLIC_PATH, 'index.html');
-        const API_BASIC_URL = '/api';
+        // const INDEX_HTML_PATH = path.join(PUBLIC_PATH, 'index.html');
+        // const API_BASIC_URL = '/api';
 
         this.app.use(
             express.static(PUBLIC_PATH)
@@ -60,26 +58,26 @@ class Aplication {
     }
 
 
-    private onError(error: any) {
-        if (error.syscall !== 'listen') {
-            throw error;
-        }
+    // private onError(error: any) {
+    //     if (error.syscall !== 'listen') {
+    //         throw error;
+    //     }
 
-        const bind = 'Port ' + this.config.get('port');
+    //     const bind = 'Port ' + this.config.get('port');
 
-        switch (error.code) {
-            case 'EACCES':
-                console.error(bind + ' requires elevated privileges');
-                process.exit(1);
-                break;
-            case 'EADDRINUSE':
-                console.error(bind + ' is already in use');
-                process.exit(1);
-                break;
-            default:
-                throw error;
-        }
-    }
+    //     switch (error.code) {
+    //         case 'EACCES':
+    //             console.error(bind + ' requires elevated privileges');
+    //             process.exit(1);
+    //             break;
+    //         case 'EADDRINUSE':
+    //             console.error(bind + ' is already in use');
+    //             process.exit(1);
+    //             break;
+    //         default:
+    //             throw error;
+    //     }
+    // }
 }
 
 export { Aplication };

@@ -29,7 +29,7 @@ describe('db test', () => {
         const data = await getRepository(Test).findOne(1);
         loader.close();
         // expect.assertions(1);
-        expect(data).toEqual({ id: 1, name: 'name2', description: 'desc' });
+        expect(data).toEqual({ id: 1, name: 'name', description: 'desc' });
     });
 });
 

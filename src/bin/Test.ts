@@ -1,7 +1,7 @@
 import 'reflect-metadata';
 import { Load } from './Load'
 import { getRepository } from 'typeorm';
-import Test from '../server/infrastructure/db-models/Test';
+import Test from '@infrastructure/db-models/Test';
 
 export class TestCass extends Load {
     public async load(): Promise<any> {

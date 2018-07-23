@@ -1,5 +1,5 @@
 import 'reflect-metadata';
-import { DbConnector } from '../core/DbConnector';
+import { DbConnector } from '@core/DbConnector';
 import { Connection } from 'typeorm';
 
 const config = require('../../../../config');

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
-import { Home, About, PageNotFound } from '../pages';
+import { Home, About } from '../pages';
 
 export type Props = {};
 

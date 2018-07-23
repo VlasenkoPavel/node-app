@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { Component } from 'react';
-import { render } from 'react-dom';
 import { Header, Props as HeaderProps } from './Header';
 import { Jumbotron, Props as JumbotronProps } from './Jumbotron';
 

@@ -18,7 +18,7 @@ export class DbConnector {
     }
 
     public async connect(): Promise<void> {
-        await this.getConnection()
+        return await this.getConnection()
             .then(connection => {
                 connection.isConnected
                     ? console.log(`Connection to the database success`)

@@ -26,7 +26,7 @@ gulp.task('default', function(done) {
 gulp.task('typescript', function () {
     var tsResult = tsProject.src()
                             .pipe(tsGlob())
-                            .pipe(tsProject());
+                            .pipe(tsProject(ts.reporter.longReporter()));
 
     return tsResult.js
                    .pipe(sourcemaps.write("."))

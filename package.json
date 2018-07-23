@@ -9,7 +9,7 @@
     "test": "NA_ENV=test jest",
     "migrate": "node ./config/getOrmConfig > ormconfig.json && ./node_modules/.bin/typeorm migration:run",
     "migrate-test": "NA_ENV=test node ./config/getOrmConfig > ormconfig.json && ./node_modules/.bin/typeorm migration:run",
-    "compile-dev": "./node_modules/.bin/tsc --watch"
+    "tsc": "./node_modules/.bin/tsc --watch --project tsconfig.json"
   },
   "dependencies": {
     "body-parser": "^1.18.2",
@@ -67,24 +67,5 @@
     "webpack-cli": "^2.1.2",
     "tsconfig-paths": "^3.4.2",
     "source-map-support": "^0.5.6"
-  },
-  "jest": {
-    "globals": {
-      "ts-jest": {
-        "skipBabel": true,
-        "useBabelrc": true,
-        "enableTsDiagnostics": true
-      }
-    },
-    "transform": {
-      "^.+\\.tsx?$": "ts-jest"
-    },
-    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
-    "moduleFileExtensions": [
-      "js",
-      "jsx",
-      "json",
-      "node"
-    ]
   }
 }

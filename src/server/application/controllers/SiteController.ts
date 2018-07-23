@@ -1,8 +1,6 @@
-import { Controller, Param, Body, Get, Post, Put, Delete, Res, UseBefore } from 'routing-controllers';
+import { Controller, Get } from 'routing-controllers';
 import { getRepository } from 'typeorm';
-import * as path from 'path';
 
-import * as express from 'express';
 // import { SendIndexHtml } from '../components/middlewares/sendIndexHtml';
 import Test from '@infrastructure/db-models/Test'
 

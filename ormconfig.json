@@ -1,16 +1,1 @@
-{
-    "type":"postgres",
-    "host":"localhost",
-    "database":"nodeapp",
-    "username":"pvlasenko",
-    "password":"ac3102",
-    "entities":[
-        "dist/db/models/*.js"
-    ],
-    "migrations":[
-        "dist/db/migrations/*.js"
-    ],
-    "logging":[
-        "query","error"
-    ]
-}
+{"type":"postgres","host":"localhost","password":"123qwe","username":"admin","entities":["/home/psvl/Desktop/node-app/dist/server/infrastructure/db-models/*.js"],"synchronize":true,"logging":false,"database":"test-db","mirations":["/home/psvl/Desktop/node-app/dist/server/infrastructure/db-models"]}
