@@ -1,0 +1,19 @@
+hi
+early eighties. After a successful career in the Royal Australian Air Force during the
+nineties, he returned to programming in the first decade of the twenty-first century.
+He has found a new passion in developing responsive web applications using the
+latest .NET technologies. He was force-fed TypeScript by Nathan Rozentals, and
+now he wouldn't touch JavaScript without it. He believes there's a future for the Go
+language and hacks at it in his spare time.
+Remo H. Jansen is a web development engineer, open source contributor,
+entrepreneur, technology lover, gamer, and Internet enthusiast. He is originally from
+Seville, Spain, but he currently lives in Dublin, Ireland, where he has a full-time job
+in the funds industry.
+Remo has been working on large-scale JavaScript applications for the last few years,
+from flight booking engines to investment and portfolio management solutions.
+He loves exploring the possibilities of the Web, learning about new and exciting
+technologies, and joining knowledge-sharing events such as meets, conferences,
+and hackathons.
+Remo has recently started working as an author on an upcoming book on TypeScript
+by Packt Publishing.
+If you wish to contact him, you will be able to do so at www.remojansen.com.
