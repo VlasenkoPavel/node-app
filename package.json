@@ -5,7 +5,8 @@
   "scripts": {
     "start": "node ./dist/server/index.js",
     "build": "./node_modules/.bin/gulp",
-    "lint": "tslint -c tslint.json 'src/**/*.{ts,tsx}'"
+    "lint": "tslint -c tslint.json 'src/**/*.{ts,tsx}'",
+    "tsc-dev": "./node_modules/.bin/tsc --watch --project tsconfig.json"
   },
   "dependencies": {
     "body-parser": "^1.18.2",
